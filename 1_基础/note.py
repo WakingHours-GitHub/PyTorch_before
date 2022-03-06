@@ -70,8 +70,20 @@ PyTorch能够做什么:
     当loss趋近于0时, 我们求解得到的也就是y~wx+b近似时的一个w,b的取值
     这样我们就给构建了一个优化目标, 即loss最小
 
-    那么如果给定一堆点的情况下:
-    loss就被定义为: loss = sum(Wx_i + b - y_i)
+    那么如果给定一堆点的情况下: 就是线性回归的情况:
+    Linear Regression:
+    loss就被定义为: loss = sum((Wx_i + b - y_i) ^ 2)
+    通过不断优化这个loss, 我们估计得到一组w/b的值, 构建好这个回归方程
+    然后再用来预测: x_pred -> y_pred
+    一般来说: 回归问题的y是(-inf, +inf)的一个连续数值.
+
+    Logistic Regression:
+    就是回归的基础上, 加上了一个激活函数(压缩函数), 使y(-inf, +inf)坍塌到(0, 1)范围内, 此时就变成了概率问题,
+    再logistic regression中, 这个激活函数称为: sigmoid函数
+
+    Classification:
+    分类问题. 所有类别的概率值加起来为1, 然后取最大的那个概率值, 作为类别.
+
 
 
 
