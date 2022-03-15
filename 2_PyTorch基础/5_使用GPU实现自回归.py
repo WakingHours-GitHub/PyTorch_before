@@ -1,5 +1,5 @@
 import torch
-from torch import  nn
+from torch import nn
 from torch import optim
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
