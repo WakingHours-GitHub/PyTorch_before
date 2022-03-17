@@ -13,9 +13,9 @@ class SMSS_dataset(Dataset):  # 继承Dataset父类
     def __getitem__(self, item): # 根据索引获取数据
         cur_line = self.lines[item].strip()
         # 切分成label和feature
-        label = cur_line[0:4].strip()
-        content = cur_line[4:].strip()
-        return label, content
+        label = cur_line[0:4].strip() # 标签
+        content = cur_line[4:].strip() # 内容
+        return label, content  # 返回
 
 
 
@@ -43,9 +43,7 @@ def test02():
     # 实例化数据集对象
     data_set = SMSS_dataset()
 
-
-
-    dataloader = DataLoader(
+    dataloader = DataLoader( # batch批处理. 返回批处理队列.
         dataset=data_set, # 数据集对象
         batch_size=2, # batch, 分组大小
         shuffle=True, # 是否打乱
@@ -56,9 +54,9 @@ def test02():
         print(dl)
         break
 
-    # 我们经常会使用 enumerate
+    # 我们经常会使用 enumerate, 就是, 将可迭代对象与index共同返回.
     for index, (label, content) in enumerate(dataloader):
-        print(index, label, content)
+        print(index, label, content) #
         break
 
 # 测试：
