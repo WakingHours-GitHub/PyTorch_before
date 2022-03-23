@@ -29,7 +29,8 @@ class SMSS_dataset(Dataset):  # 继承Dataset父类
         return len(self.lines)
 
 
-class
+# 练习:
+# class s
 
 
 def test01():
@@ -81,6 +82,7 @@ def test02():
 
 
 def test03():
+    pass
     #
 
 # 测试：
