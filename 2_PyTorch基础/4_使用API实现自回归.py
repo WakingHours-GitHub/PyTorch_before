@@ -14,7 +14,7 @@ class MyLinear(nn.Module):
         super(MyLinear, self).__init__() # 继承父类的init
         self.Linear = nn.Linear(1, 1, bias=True)
 
-    def forward(self, x): # 通过__call()__调用这个forward() 方法
+    def forward(self, x):  # 通过__call()__调用这个forward() 方法
         y_pred = self.Linear(x)
 
         return y_pred
@@ -29,7 +29,7 @@ loss_fn = nn.MSELoss()
 # 3. 循环, 进行梯度下降, 参数的更新:
 for i in range(200):
     # 计算预测值
-    y_pred = my_linear(x)
+    y_pred = my_linear(x) # 对象当成函数调用, 直接使用
     loss = loss_fn(y_pred, y_true)
 
     # 重置梯度
