@@ -145,7 +145,7 @@ def test():
     # 计算平均损失
     loss_mean = np.mean(loss_list)
     acc_mean = np.mean(acc_list)
-    print(f"本次, 测试集      ")
+    print(f"本次, 测试集(batch): {TEST_BATCH_SIZE}, 平均损失: {loss_mean}, 平均准确率: {acc_mean}")
 
 
 
