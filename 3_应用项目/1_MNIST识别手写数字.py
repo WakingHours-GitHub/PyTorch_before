@@ -41,7 +41,6 @@ def get_mnist_dataloader(istrain=True, batch_size=BATCH_SIZE):
     return mnist_dataloader
 
 
-
 # 构建模型:
 class MnistModel(nn.Module):
     def __init__(self, isload=True):
@@ -74,7 +73,6 @@ class MnistModel(nn.Module):
 
         # self.full = nn.Linear()
 
-
     def forward(self, x):
         """
         输入: [batch_size, 1, 28, 28]
@@ -86,7 +84,7 @@ class MnistModel(nn.Module):
         x = F.relu(x)  # 激活函数不改变形状
         # print(x.shape)
 
-        x = self.maxpool(x)
+        x = self.maxpool(x)  # 池化
         # x: [batch_size, 32, 13, 13]
         x = F.relu(x)
         # print(x.shape)
@@ -123,17 +121,17 @@ class MnistModel(nn.Module):
             x = x.to(device)
             y_true = y_true.to(device)
 
-            self.optimizer.zero_grad() # 重置梯度
+            self.optimizer.zero_grad()  # 重置梯度
             y_pred = self(x)
-            loss = F.nll_loss(y_pred, y_true) # 计算损失
-            loss.backward() # 反向传播, 就是计算梯度
-            self.optimizer.step() # 更新参数
+            loss = F.nll_loss(y_pred, y_true)  # 计算损失
+            loss.backward()  # 反向传播, 就是计算梯度
+            self.optimizer.step()  # 更新参数
             acc = torch.eq(y_pred.data.max(-1)[-1], y_true).float().mean()
             print("index:{}, loss: {}, acc: {}".format(index, loss.item(), acc.item()))
             # break
 
             # 保存模型
-            if not(index % 100):
+            if not (index % 100):
                 torch.save(self.state_dict(), "./model/MNIST/model.pt")
                 torch.save(self.optimizer.state_dict(), "./model/MNIST/optimizer.pt")
 
