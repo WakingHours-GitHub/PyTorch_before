@@ -4,6 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/3_应用项目/2_情感分类/aclImdb_v1" />
       <excludeFolder url="file://$MODULE_DIR$/2_PyTorch基础/mnist_data" />
+      <excludeFolder url="file://$MODULE_DIR$/4_土堆torch学习/hymenoptera_data" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
