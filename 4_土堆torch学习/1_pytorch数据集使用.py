@@ -46,6 +46,7 @@ class MyDataset(Dataset):
                               os.listdir(self.all_file_root_path)]
 
     def __getitem__(self, item):
+        # 返回内容和标签
         return torch.tensor(cv.imread(self.all_file_path[item]), dtype=torch.float32), self.img_type  # 返回内容和标签
 
     def __len__(self):
